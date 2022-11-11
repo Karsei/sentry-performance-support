@@ -1,0 +1,4 @@
+rootProject.name = 'sentry-performance'
+include 'sentry-performance-core'
+include 'sentry-performance-support'
+include 'spring-boot-sentry-performance-starter'

@@ -1,0 +1,20 @@
+{
+  "groups": [
+    {
+      "name": "sentry",
+      "type": "kr.pe.karsei.helper.sentry.performance.SentryPerformanceProperties",
+      "sourceType": "kr.pe.karsei.helper.sentry.performance.SentryPerformanceProperties",
+      "description": "Sentry 설정"
+    }
+  ],
+  "properties": [
+    {
+      "name": "sentry.performance-enabled",
+      "type": "java.lang.Boolean",
+      "sourceType": "kr.pe.karsei.helper.sentry.performance.SentryPerformanceProperties",
+      "description": "Performance 추적을 위해 기능을 활성화할지 여부를 선택합니다.",
+      "defaultValue": true
+    }
+  ],
+  "hints": []
+}

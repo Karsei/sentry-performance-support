@@ -1,0 +1,77 @@
+buildscript {
+    ext {
+        set('projectVersion', '1.0.0')
+        set('projectGroup', 'kr.pe.karsei.helper')
+        set('springBootVersion', "2.7.5")
+        set('springDependencyVersion', "1.0.15.RELEASE")
+        set('sentryVersion', "5.5.0")
+    }
+
+    repositories {
+        maven { url "https://plugins.gradle.org/m2/" }
+    }
+
+    dependencies {
+        classpath "io.spring.gradle:dependency-management-plugin:${springDependencyVersion}"
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
+    }
+}
+
+group = projectGroup
+version = projectVersion
+
+allprojects {
+    apply plugin: 'java-library'
+    apply plugin: 'maven-publish'
+
+    repositories {
+        mavenCentral()
+        mavenLocal()
+    }
+}
+
+subprojects {
+    apply plugin: 'io.spring.dependency-management'
+    apply plugin: 'org.springframework.boot'
+
+    dependencies {
+        // Lombok
+        compileOnly 'org.projectlombok:lombok'
+        annotationProcessor 'org.projectlombok:lombok'
+
+        // Test
+        testImplementation 'org.assertj:assertj-core'
+        testImplementation 'org.mockito:mockito-core'
+        testImplementation 'org.junit.jupiter:junit-jupiter-api'
+        testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+    }
+
+    test {
+        useJUnitPlatform()
+    }
+
+    bootJar {
+        enabled(false)
+    }
+    jar {
+        enabled(true)
+//        classifier('')
+    }
+
+    task sourceJar(type: Jar) {
+        from sourceSets.main.java.srcDirs
+        classifier('sources')
+    }
+
+    publishing {
+        publications {
+            mavenJava(MavenPublication) {
+                from components.java
+                groupId projectGroup
+                version projectVersion
+
+                artifact sourceJar
+            }
+        }
+    }
+}

@@ -1,0 +1,6 @@
+dependencies {
+    implementation 'org.aspectj:aspectjweaver'
+    implementation 'org.springframework:spring-aop'
+
+    implementation(project(':sentry-performance-core'))
+}
