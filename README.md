@@ -9,6 +9,7 @@ Support breadcrumb of spans monitoring in sentry performance feature for Spring.
 * sentry-performance-support - Supporting breadcrumb and span for Sentry Performance
 * spring-boot-sentry-performance-starter - Spring Boot Auto-Configure for this library
 
+<!--
 ## Usage
 
 Add the following to your dependencies in `build.gradle`.
@@ -25,3 +26,4 @@ implementation group: 'kr.pe.karsei.helper', name: 'spring-boot-sentry-performan
 ```
 
 If you want to exclude automatic settings, set `sentry.performance-enabled` to `false`.
+-->
