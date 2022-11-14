@@ -2,6 +2,8 @@
 
 Support breadcrumb of spans monitoring in sentry performance feature for Spring.
 
+![introduce](./images/introduce.png)
+
 ## Modules
 
 * sentry-performance-core - Sentry Core
