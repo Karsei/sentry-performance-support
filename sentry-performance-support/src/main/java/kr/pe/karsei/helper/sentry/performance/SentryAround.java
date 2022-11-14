@@ -2,24 +2,15 @@ package kr.pe.karsei.helper.sentry.performance;
 
 import io.sentry.IHub;
 import io.sentry.ISpan;
-import lombok.RequiredArgsConstructor;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
 import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.annotation.Around;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint;
 import org.springframework.util.StopWatch;
 
-@Aspect
-@RequiredArgsConstructor
-public class SentryAspect {
-    private final IHub iHub;
-
-    @Pointcut("@annotation(kr.pe.karsei.helper.sentry.performance.SentryPerformance)")
-    public void annotationSentryPerformance(){}
-
-    @Around("annotationSentryPerformance()")
-    public Object aroundAspect(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
+public class SentryAround {
+    public static Object trace(IHub iHub, ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
         ExecutionInformation methodInfo = ExecutionInformation.getInfo((MethodInvocationProceedingJoinPoint) proceedingJoinPoint);
 
         TransactionBreadcrumb breadcrumb = new TransactionBreadcrumb();
