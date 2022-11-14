@@ -55,7 +55,7 @@ class SentryPerformanceAutoConfigurationTest {
 //        this.context.register(HubAdapter.getInstance().getClass());
 //        this.context.register(SentryPerformanceAutoConfiguration.class);
 //        this.context.refresh();
-//        SentryAspect sentryAspect = this.context.getBean(SentryAspect.class);
-//        assertThat(sentryAspect).isNotNull();
+//        SentryAnnotationAspect sentryAnnotationAspect = this.context.getBean(SentryAnnotationAspect.class);
+//        assertThat(sentryAnnotationAspect).isNotNull();
 //    }
 }
