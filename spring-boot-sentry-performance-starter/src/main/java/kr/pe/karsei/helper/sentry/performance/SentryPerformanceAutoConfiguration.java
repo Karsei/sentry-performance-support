@@ -17,7 +17,7 @@ public class SentryPerformanceAutoConfiguration {
 
     @Bean
     @ConditionalOnMissingBean
-    public SentryAspect sentryAspect(IHub iHub) {
-        return new SentryAspect(iHub);
+    public SentryAnnotationAspect SentryAnnotationAspect(IHub iHub) {
+        return new SentryAnnotationAspect(iHub);
     }
 }
