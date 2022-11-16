@@ -1,6 +1,6 @@
 # Sentry Performance for Spring
 
-Support breadcrumb of spans monitoring in sentry performance feature for Spring.
+Spring 용 Sentry Performance 기능을 위한 Breadcrumb, span 모니터링 지원 라이브러리
 
 ![introduce](./images/introduce.png)
 
