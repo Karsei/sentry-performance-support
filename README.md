@@ -4,6 +4,8 @@ Spring 용 Sentry Performance 기능을 위한 Breadcrumb, span 모니터링 지
 
 ![introduce](./images/introduce.png)
 
+Spring Boot 에서 Sentry Trace Sampling 을 하면 기본적으로 span 이 `http.server` 하나 밖에 나오지 않습니다. Breadcrumb 과 Span 을 직접 만들어서 메서드 및 파라미터 정보를 남기도록 하고, Spring AOP 를 이용하여 여러 메서드로부터 로깅이 되도록 도와줍니다.
+
 ## Modules
 
 * sentry-performance-core - Sentry Core
