@@ -19,10 +19,21 @@ Spring Boot 에서 Sentry Trace Sampling 을 하면 기본적으로 span 이 `ht
 `build.gradle` 에 의존성 추가
 
 ```groovy
-implementation group: 'kr.pe.karsei.helper', name: 'sentry-performance-support', version: '1.0.0'
+allprojects {
+    repositories {
+        ...
+        maven { url 'https://jitpack.io' }
+    }
+}
 
-// annotation 기반으로 이용하고 싶을 경우 추가
-implementation group: 'kr.pe.karsei.helper', name: 'spring-boot-sentry-performance-starter', version: '1.0.0'
+dependencies {
+    ...
+    implementation group: 'io.sentry', name: 'sentry', version: '5.5.0'
+    implementation group: 'com.github.Karsei', name: 'sentry-performance-support', version: '1.0.1'
+
+    // annotation 기반으로 이용하고 싶을 경우 추가
+    implementation group: 'com.github.Karsei', name: 'spring-boot-sentry-performance-starter', version: '1.0.1'
+}
 ```
 
 `application.yml`/`application.properties` 에 아래와 같이 sentry trace sampling 작성 (수치는 어플리케이션별로 적절히 입력)
